@@ -6,7 +6,7 @@
  * Note that an empty string is also considered valid.
 */
 
-const dict = {
+const hash = {
   "(": ")",
   "{": "}",
   "[": "]"
@@ -16,10 +16,11 @@ const validParentheses = string => {
   const stack = [];
   for (let i = 0; i < string.length; i++) {
     const current = string.charAt(i);
-    if (dict.hasOwnProperty(current)) {
+    if (hash.hasOwnProperty(current)) {
       stack.push(current);
     } else {
-      if (dict[current] !== stack.pop()) {
+      const popped = stack.pop();
+      if (hash[popped] !== current) {
         return false;
       }
     }
@@ -27,3 +28,5 @@ const validParentheses = string => {
 
   return stack.length === 0;
 };
+
+console.log(validParentheses("{[]}"));

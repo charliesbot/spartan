@@ -35,8 +35,8 @@ var numIslands = function(grid) {
     for (let column = 0; column < grid[row].length; column++) {
       if (grid[row][column] === "1") {
         result++;
+        transformIslands(row, column);
       }
-      transformIslands(row, column);
     }
   }
 

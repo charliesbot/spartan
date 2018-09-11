@@ -28,5 +28,3 @@ const validParentheses = string => {
 
   return stack.length === 0;
 };
-
-console.log(validParentheses("{[]}"));

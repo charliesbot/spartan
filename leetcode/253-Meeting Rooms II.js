@@ -5,23 +5,29 @@
 */
 
 var minMeetingRooms = function(intervals) {
-  intervals = intervals.sort((a, b) => a.start - b.start);
-  let found = false;
-  const rooms = [];
+  const start = [];
+  const end = [];
+
   for (let i = 0; i < intervals.length; i++) {
-    found = false;
-    for (let j = 0; j < rooms.length; j++) {
-      if (rooms[j].end <= intervals[i].start) {
-        rooms[j].end = intervals[i].end;
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      rooms.push(intervals[i]);
+    start.push(intervals[i].start);
+    end.push(intervals[i].end);
+  }
+
+  start.sort((a, b) => a - b);
+  end.sort((a, b) => a - b);
+
+  let endIndex = 0;
+  let rooms = 0;
+
+  for (let i = 0; i < start.length; i++) {
+    if (start[i] < end[endIndex]) {
+      rooms++;
+    } else {
+      endIndex++;
     }
   }
-  return rooms.length;
+
+  return rooms;
 };
 
 // const times = [{ start: 13, end: 15 }, { start: 1, end: 13 }];

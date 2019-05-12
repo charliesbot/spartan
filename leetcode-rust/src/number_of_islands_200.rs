@@ -25,6 +25,11 @@ impl Solution {
 
     pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
         let mut islands: i32 = 0;
+
+        if grid.is_empty() {
+            return islands;
+        }
+
         let mut parent = grid.to_vec();
         let (rows, columns) = (parent.len(), parent[0].len());
         for row in 0..rows {
@@ -36,7 +41,6 @@ impl Solution {
             }
         }
 
-        println!("done ! {:?}", parent);
         return islands;
     }
 }
@@ -50,4 +54,10 @@ fn test_number_of_islands() {
         vec!['0', '0', '0', '1', '1'],
     ];
     assert_eq!(Solution::num_islands(data), 3);
+}
+
+#[test]
+fn test_with_empty_arg() {
+    let data = vec![];
+    assert_eq!(Solution::num_islands(data), 0);
 }

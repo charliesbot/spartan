@@ -45,19 +45,23 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_number_of_islands() {
-    let data = vec![
-        vec!['1', '1', '0', '1', '0'],
-        vec!['1', '1', '0', '1', '0'],
-        vec!['1', '1', '0', '0', '0'],
-        vec!['0', '0', '0', '1', '1'],
-    ];
-    assert_eq!(Solution::num_islands(data), 3);
-}
+#[cfg(test)]
+mod tests {
+    use crate::number_of_islands_200::Solution;
+    #[test]
+    fn test_number_of_islands() {
+        let data = vec![
+            vec!['1', '1', '0', '1', '0'],
+            vec!['1', '1', '0', '1', '0'],
+            vec!['1', '1', '0', '0', '0'],
+            vec!['0', '0', '0', '1', '1'],
+        ];
+        assert_eq!(Solution::num_islands(data), 3);
+    }
 
-#[test]
-fn test_with_empty_arg() {
-    let data = vec![];
-    assert_eq!(Solution::num_islands(data), 0);
+    #[test]
+    fn test_with_empty_arg() {
+        let data = vec![];
+        assert_eq!(Solution::num_islands(data), 0);
+    }
 }

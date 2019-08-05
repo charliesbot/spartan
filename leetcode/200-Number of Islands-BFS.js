@@ -12,7 +12,7 @@ const bfs = (row, column, grid) => {
   }
 };
 
-var numIslands = function(grid) {
+const numIslands = grid => {
   let islands = 0;
   for (let row = 0; row < grid.length; row++) {
     for (let column = 0; column < grid[row].length; column++) {

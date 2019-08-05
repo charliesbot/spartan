@@ -15,7 +15,7 @@ impl Solution {
             match hash.get(&c) {
                 Some(&entry) => vec.push(entry),
                 None => {
-                    let popped = vec.pop().unwrap_or('.');
+                    let popped = vec.pop().unwrap_or('0');
 
                     if popped != c {
                         return false;

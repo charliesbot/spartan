@@ -10,32 +10,33 @@
  * @return {number}
  */
 
+const transformIslands = (y, x, grid) => {
+  if (
+    y < 0 ||
+    x < 0 ||
+    y >= grid.length ||
+    x >= grid[y].length ||
+    grid[y][x] === "0"
+  ) {
+    return;
+  }
+
+  grid[y][x] = "0";
+
+  transformIslands(y, x + 1, grid);
+  transformIslands(y, x - 1, grid);
+  transformIslands(y + 1, x, grid);
+  transformIslands(y - 1, x, grid);
+};
+
 var numIslands = function(grid) {
   let result = 0;
-  const transformIslands = (y, x) => {
-    if (
-      y < 0 ||
-      x < 0 ||
-      y >= grid.length ||
-      x >= grid[y].length ||
-      grid[y][x] === "0"
-    ) {
-      return;
-    }
-
-    grid[y][x] = "0";
-
-    transformIslands(y, x + 1);
-    transformIslands(y, x - 1);
-    transformIslands(y + 1, x);
-    transformIslands(y - 1, x);
-  };
 
   for (let row = 0; row < grid.length; row++) {
     for (let column = 0; column < grid[row].length; column++) {
       if (grid[row][column] === "1") {
         result++;
-        transformIslands(row, column);
+        transformIslands(row, column, grid);
       }
     }
   }

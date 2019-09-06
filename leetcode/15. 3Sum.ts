@@ -25,17 +25,14 @@ const threeSum = (nums: number[]) => {
 
         left++;
         right--;
-        continue;
       }
 
       if (sum < 0) {
         left++;
-        continue;
       }
 
       if (sum > 0) {
         right--;
-        continue;
       }
     }
   }

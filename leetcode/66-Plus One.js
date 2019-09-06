@@ -4,7 +4,7 @@
  * and each element in the array contain a single digit.
  *
  * You may assume the integer does not contain any leading zero, except the number 0 itself.
-*/
+ */
 
 var plusOne = function(digits) {
   for (let i = digits.length - 1; i >= 0; i--) {

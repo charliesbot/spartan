@@ -4,7 +4,7 @@
  * find the minimum number of conference rooms required.
  */
 
-var minMeetingRooms = function(intervals) {
+const minMeetingRooms = function(intervals) {
   const start = [];
   const end = [];
 
@@ -36,4 +36,5 @@ const times = [
   { start: 5, end: 10 },
   { start: 15, end: 20 }
 ];
+
 console.log(minMeetingRooms(times));

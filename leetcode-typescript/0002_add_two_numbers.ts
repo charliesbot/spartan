@@ -7,19 +7,17 @@
  * except the number 0 itself.
 */
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-var addTwoNumbers = function(l1, l2) {
+class ListNode {
+  val: number;
+  next: ListNode;
+  constructor(val: number) {
+    this.val = val;
+    this.next = null
+  }
+}
+
+
+const addTwoNumbers = function (l1: ListNode, l2: ListNode) {
   let head = new ListNode(0);
   let l3 = head;
   let carry = 0;

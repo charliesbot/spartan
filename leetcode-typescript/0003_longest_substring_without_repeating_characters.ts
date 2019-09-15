@@ -3,11 +3,7 @@
  * substring without repeating characters.
 */
 
-/**
- * @param {string} s
- * @return {number}
- */
-var lengthOfLongestSubstring = function(s) {
+const lengthOfLongestSubstring = (s: string): number => {
   const hash = {};
   let maxCount = 0;
   let start = 0;
